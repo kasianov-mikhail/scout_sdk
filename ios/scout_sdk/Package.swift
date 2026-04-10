@@ -11,7 +11,7 @@ let package = Package(
         .library(name: "scout-sdk", targets: ["scout_sdk"])
     ],
     dependencies: [
-        .package(url: "https://github.com/kasianov-mikhail/scout.git", branch: "main"),
+        .package(url: "https://github.com/kasianov-mikhail/scout.git", from: "3.1.0"),
     ],
     targets: [
         .target(
