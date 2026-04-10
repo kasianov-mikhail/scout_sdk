@@ -8,3 +8,7 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+  - package-ecosystem: "swift"
+    directory: "/ios/scout_sdk"
+    schedule:
+      interval: "weekly"
