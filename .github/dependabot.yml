@@ -3,12 +3,12 @@ updates:
   - package-ecosystem: "pub"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
   - package-ecosystem: "swift"
     directory: "/ios/scout_sdk"
     schedule:
-      interval: "weekly"
+      interval: "daily"
