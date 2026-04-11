@@ -1,40 +1,36 @@
-# scout_sdk
+<div align="center">
+
+# Scout SDK
+
+**iOS analytics for Flutter, backed by CloudKit**
 
 [![CI](https://github.com/kasianov-mikhail/scout_sdk/actions/workflows/ci.yml/badge.svg)](https://github.com/kasianov-mikhail/scout_sdk/actions/workflows/ci.yml)
 [![pub package](https://img.shields.io/pub/v/scout_sdk.svg)](https://pub.dev/packages/scout_sdk)
 [![license](https://img.shields.io/github/license/kasianov-mikhail/scout_sdk.svg)](https://github.com/kasianov-mikhail/scout_sdk/blob/main/LICENSE)
 
-Flutter wrapper for [Scout](https://github.com/kasianov-mikhail/scout) — an iOS analytics framework providing logging, metrics, crash reporting, and session tracking backed by Apple's CloudKit.
+Logging · Metrics · Crash Reporting · Session Tracking
 
-## Platform Support
+[Getting Started](#getting-started) · [Logging](#logging) · [Metrics](#metrics) · [Dashboard](#dashboard)
 
-| iOS | Android |
-|:---:|:-------:|
-| Yes |   No    |
+</div>
 
-## Requirements
+<br>
 
-- iOS 16.0+
-- Flutter 3.24+ (Swift Package Manager support)
-- A CloudKit container configured in your Apple Developer account
+Flutter wrapper for [Scout](https://github.com/kasianov-mikhail/scout) — an iOS analytics framework that persists logs, metrics, crash reports, and sessions to Apple's CloudKit.
 
-## Installation
+> [!NOTE]
+> iOS only. Requires iOS 16+ and Flutter 3.24+.
+
+## Getting Started
 
 ```yaml
 dependencies:
   scout_sdk: ^0.1.0
 ```
 
-This package depends on [swift_log_bridge](https://pub.dev/packages/swift_log_bridge) and [swift_metrics_bridge](https://pub.dev/packages/swift_metrics_bridge), which are included automatically.
+This package includes [swift_log_bridge](https://pub.dev/packages/swift_log_bridge) and [swift_metrics_bridge](https://pub.dev/packages/swift_metrics_bridge) automatically.
 
-### iOS Setup
-
-1. Enable **CloudKit** and **Push Notifications** capabilities in Xcode
-2. Create a CloudKit container (e.g., `iCloud.com.yourcompany.yourapp`)
-
-## Usage
-
-### Initialize
+Enable **CloudKit** and **Push Notifications** capabilities in Xcode, then initialize:
 
 ```dart
 import 'package:scout_sdk/scout_sdk.dart';
@@ -42,9 +38,9 @@ import 'package:scout_sdk/scout_sdk.dart';
 await Scout.setup(containerId: 'iCloud.com.yourcompany.yourapp');
 ```
 
-### Logging
+## Logging
 
-After `Scout.setup()`, all logging is persisted to CloudKit via Scout's swift-log backend.
+All logs are persisted to CloudKit via Scout's [swift-log](https://github.com/apple/swift-log) backend.
 
 ```dart
 const logger = Logger('MyApp');
@@ -53,9 +49,9 @@ await logger.info('User signed in');
 await logger.error('Request failed', metadata: {'endpoint': '/api/users'});
 ```
 
-### Metrics
+## Metrics
 
-After `Scout.setup()`, all metrics are persisted to CloudKit via Scout's swift-metrics backend.
+All metrics are persisted to CloudKit via Scout's [swift-metrics](https://github.com/apple/swift-metrics) backend.
 
 ```dart
 const counter = Counter('button_taps');
@@ -65,7 +61,7 @@ const timer = MetricsTimer('api_latency');
 await timer.record(Duration(milliseconds: 250));
 ```
 
-### Dashboard
+## Dashboard
 
 ```dart
 await Scout.showDashboard(containerId: 'iCloud.com.yourcompany.yourapp');
@@ -75,8 +71,8 @@ await Scout.showDashboard(containerId: 'iCloud.com.yourcompany.yourapp');
 
 ```
 scout_sdk
-├── swift_log_bridge      (swift-log wrapper)
-└── swift_metrics_bridge   (swift-metrics wrapper)
+├── swift_log_bridge
+└── swift_metrics_bridge
 ```
 
-`scout_sdk` configures Scout as the backend for both swift-log and swift-metrics. The logging and metrics packages can also be used independently with other backends.
+The bridge packages can also be used independently with other backends.
