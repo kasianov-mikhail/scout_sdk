@@ -1,6 +1,6 @@
 <div align="center">
 
-# Scout SDK
+# 📊 Scout SDK
 
 **iOS analytics for Flutter, backed by CloudKit**
 
@@ -10,7 +10,7 @@
 
 Logging · Metrics · Crash Reporting · Session Tracking
 
-[Getting Started](#getting-started) · [Logging](#logging) · [Metrics](#metrics) · [Dashboard](#dashboard)
+[Getting Started](#-getting-started) · [Logging](#-logging) · [Metrics](#-metrics) · [Dashboard](#-dashboard)
 
 </div>
 
@@ -21,7 +21,7 @@ Flutter wrapper for [Scout](https://github.com/kasianov-mikhail/scout) — an iO
 > [!NOTE]
 > iOS only. Requires iOS 16+ and Flutter 3.24+.
 
-## Getting Started
+## 🚀 Getting Started
 
 ```yaml
 dependencies:
@@ -38,7 +38,7 @@ import 'package:scout_sdk/scout_sdk.dart';
 await Scout.setup(containerId: 'iCloud.com.yourcompany.yourapp');
 ```
 
-## Logging
+## 📝 Logging
 
 All logs are persisted to CloudKit via Scout's [swift-log](https://github.com/apple/swift-log) backend.
 
@@ -49,7 +49,7 @@ await logger.info('User signed in');
 await logger.error('Request failed', metadata: {'endpoint': '/api/users'});
 ```
 
-## Metrics
+## 📈 Metrics
 
 All metrics are persisted to CloudKit via Scout's [swift-metrics](https://github.com/apple/swift-metrics) backend.
 
@@ -61,13 +61,13 @@ const timer = MetricsTimer('api_latency');
 await timer.record(Duration(milliseconds: 250));
 ```
 
-## Dashboard
+## 🖥 Dashboard
 
 ```dart
 await Scout.showDashboard(containerId: 'iCloud.com.yourcompany.yourapp');
 ```
 
-## Architecture
+## 🏗 Architecture
 
 ```
 scout_sdk
